@@ -1,0 +1,11 @@
+{
+	"dependencies": {
+		"axios": "^0.24.0",
+		"crypto": "^1.0.1",
+		"crypto-js": "^4.1.1",
+		"fs": "^0.0.1-security",
+		"iconv-lite": "^0.6.3",
+		"js-yaml": "^4.1.0",
+		"yargs": "^17.4.1"
+	}
+}
