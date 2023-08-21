@@ -1,131 +1,350 @@
-const $=new Env('资金盘')
-let cookie='{"type":24,"_silent":true,"token":"3caea93d17a1274d41618145bb9098c4","method":"api.goldTask.ASMMember","device":"android"}'||process.env.jk160//user_key=0017338a6dc7374dd2ffb5d7af8f3e91SRrdDVXS20221206185848&cid=16
-let cookies=[]
-console.log(cookie)
-// 16680519106688891
-// let i;
-// for(let i=16680519106688891;i<16680519106788891;i++){
-//     console.log(i)
-//     await $.wait(800)
-//     await Bug(i)
-//     await $.wait(200)
-// }
+const $=new Env('超市合伙人')
+let auth='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJwcm9kIiwiaWF0IjoxNjc0MzIwNDM2LCJleHAiOjE2NzY5MTI0MzYsIm5iZiI6MTY3NDMyMDQzNiwidWlkIjoxMjQ0MTd9.wyCwtEE3x7fygU4sLh2eR5n3UzvqoWpbvEoo8I3X3f8'||process.env.cshhr
+let auths=[]
+let debug=1
+let time=new Date().getTime()
+console.log(`当前的十三位的时间戳是${time}`)
+let coments=['好','对','是']
+let coment=coments[Math.floor(Math.random()*coments.length)]//随机评论
+let res2,sit_a,sit_b
+let i=1
+let res3=0
 
-// for(let index=0;index<cookies.length;index++){
-//             let num=index+1
-//             $.log(`======现在正在分割user_key和cid,正在获取数据类型======`)
-//             data=cookies[index].split('&')
-//             $.log(`这是分割完的json对象数据user_key和cid\n${data},数据类型为${typeof (data)}`)//将object中的对象变为数组
-//             console.log(`这是分割完整的数据中的user_key保存在data[0]${data[0]}`)
-//             console.log(`这是分割完整的数据中的cid保存在data[1]${data[1]}`)
-//             data2=data[index].split('=')
-//             $.log(`!!!!!!!!!!!这是测试连续分割字符串中的数据量!!!!!${data2}\n`)
-//             $.log(`这是测试连续分割字符串出现的输出的前缀userkey在data2[0]中${data2[0]}`)
-//             $.log(`这是测试连续分割字符串出现的输出的前缀userkey的数据值在data2[1]${data2[1]}`)
-//             // console.log(data,typeof(data))
-//             $.log(`======现在正在分割ascstoken和userId======`)
-//             data1=asstokens[index].split('&')
-//             console.log(`这是分割完的json对象数据asstoken和userId\n${data1},数据类型为${typeof (data1)}`)
-//             console.log(`这是分割完整的数据中的accessToken保存在data1[0]${data1[0]}`)
-//             console.log(`这是分割完整的数据中的userId保存在data1[1]${data1[1]}`)
-//             data4=data1[1].split('=')
-//             $.log(`这是测试分割出user_id在${data4}`)
-//             data3=data1[index].split('=')
-//             $.log(`!!!!!!!!!!!这是测试连续分割字符串中的数据量!!!!!${data3}\n`)
-//             $.log(`这是测试连续分割字符串出现的输出的前缀accessToken在data3[0]中${data3[0]}`)
-//             $.log(`这是测试连续分割字符串出现的输出的前缀accessToken的数据值在data3[1]${data3[1]}`)
-//             // console.log(asstokens[0])
-//             // console.log(data1,typeof (data1))
-//             $.log(`=========开始第${num}个账户任务========\n\n`)
-//             cookie=cookies[index]
-//             $.log(`当前任务是查询签到状态+++`)//is_signed:1代表签到成功,反之如果为0代表签到不成功
-//             await CheckSignIn()
-//             await $.wait(2000)
-//             $.log(`=====当前正在执行的是签到任务====`)
-//             await SignIn()//这里是post请求的签到接口,正在执行签到任务
-//             await $.wait(2000)
-//             $.log(`开始查询任务列表...\n`)
-//             await $.wait(2000)
-//             $.log(`正在查询任务列表,目前仅支持点赞功能~~~`)
-//             await SearchTask()
-//             await $.wait(1000)
-//             $.log(`====当前正在执行的是随机领取气泡球====`)
-//             await $.wait(2000)
-//             await  CollectBall()
-//             await $.wait(1000)
-//             await  CollectBall()
-//             await $.wait(1000)
-//             await  CollectBall()
-//             await $.wait(1000)
-//             await  CollectBall()
-//             await $.wait(1000)
-//             await  CollectBall()
-//             await $.wait(1000)
-//             await  CollectBall()
-//             await $.wait(1000)
-//             await  CollectBall()
-//             await $.wait(1000)
-//             await  CollectBall()
-//             await $.wait(1000)
-//             await  CollectBall()
-//             await $.wait(1000)
-//             $.log(`气泡球任务执行完成\n`)
-//
-//         }
 !(async ()=>{
-    if(cookie){
-        for(i=16680519106688892;i<16680519106788891;i++){
-            console.log(i)
-            // await $.wait(800)
-            await Bug(i)
-            await $.wait(200)
+    if(auth){
+        auths=auth.split('@')
+        $.log(`总共有${auths.length}个auth`)
+        $.log(typeof auths)
+        for(let index=0;index<auths.length;index++){
+            // let num=index+1
+            // console.log(num)
+            console.log(auths[index])
+            $.log(`正在获取用户信息,确定合成位置`)
+            await get_user_info()
+            await user_buy()
+            // await user_update_gold()
+            await get_list()
+            await open_gold()
         }
     }else {
-        $.log(`\n请先获取cookie填入后在运行\n`)
+        $.log(`\n请先获取auth填入后在运行\n`)
     }
 })()
 
-
-function Bug (i) {
+function get_user_info() {
     return new Promise((resolve) => {
         let parms = {
-            url: `https://shiapp.huajiet.com/api.html?XDEBUG_SESSION_START=16315&X-CSRF-TOKEN=${i}`,
+            url: `https://cs.taoliutech.com/game/api/v1/user/get_user_info`,
             headers: {
-                "Cache-Control": "no-cache",
-                "Connection": "Keep-Alive",
-                "Content-Type": "application/json; Charset=UTF-8",
-                "Accept-Language": "zh-cn",
-                "Cookie": "token=AgHWIxkpeP7kRvaJaTVS_JC05n1Z520Hre4I5sdgVGjvb-iF32js5FhNfsATaeIOUkClbq3zEPGjAQAAAAB5GAAAvPO7_q2edTLVfx8M5SQbwZSXEFxabTfYItqlY-OofyZSxdAeC-cP5P1Bi1lRhvz9",
-                "Host": "promotion.waimai.meituan.com",
-                "Referer": "https://market.waimai.meituan.com/",
-                "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 TitansX/20.0.1.old KNB/1.0 iOS/15.5 meituangroup/com.meituan.imeituan/12.8.202 meituangroup/12.8.202 App/10110/12.8.202 iPhone/iPhone13ProMax WKWebView",
-                "Content-Length": "1588",
+                "Host": "cs.taoliutech.com",
+                "Accept-Encoding": "gzip, deflate",
+                "Gameversion": "1.0.331",
+                "Authorization": auth,
+                "Versioncode": "331",
+                "Content-Type": "application/json",
+                "User-Agent": "Dalvik/2.1.0 (Linux; U; Android 11; Redmi Note 8 Pro Build/RP1A.200720.011)",
             },
-            body:`${cookie}`
+            body:`{}`
         };
-
-        console.log(`================这里是测试显示请求的header中的参数================\n`);
-        console.log(parms)//这里是显示原版的json数据格式的请求头
-            // console.log(JSON.stringify(parms))
-
-        console.log(parms.url)
+        //两种 $.log(parms.url)     $.log(parms['url'])
         $.post(parms,async (error,response,data)=>{
-            if(1){
+            if(debug){
                 // console.log(`========这是测试获取请求后的响应数据========\n`)
                 // console.log(response,typeof (response))
-                // if((response.status===200)&&(response.statusCode===200)){
-                //     $.log(`🎉🎉🎉🎉签到成功🎉🎉🎉🎉`)
-                // }
-                console.log(data,typeof (data))
-                // let res=JSON.parse(data)
-                // // console.log(res)
-                // console.log(`当前正在二次校验返回值\n${res.error_msg}`)
+                if((response.status===200)&&(response.statusCode===200)){
+                    $.log(`🎉🎉🎉🎉查询用户信息请求成功🎉🎉🎉🎉`)
+                }
+                // console.log(data,typeof (data))
+                let res=JSON.parse(data)//string转json
+                // console.log(res,typeof res)
+                // let res1=res['data']
+                res2=res.data.buy_id
+                $.log(`当前欲购买的商品id是${res2}`)
+                console.log(res.data.positionInfo,typeof res.data.positionInfo)
+                let res1=res.data.positionInfo
+                let k
+                let a=[]
+                for( k in res1){
+                    // $.log(k)
+                    $.log(`第${k}号位置,等级为${res1[k].lv}`)
+                    a.push(res1[k].lv)
+                }
+                $.log(a)
+
+                same()
+                function same(){
+                    for (let i=0;i<=a.length;i++){
+                        // console.log(i)
+                        // console.log(`正在测试${a[i]}`)
+                        for(let j=i+1;j<=a.length;j++){
+                            if((a[i]===a[j])&&(a[j]!=0)){
+                                // console.log(i+1,j+1)
+                                sit_a=i+1
+                                sit_b=j+1
+                                user_move(sit_a,sit_b)
+                                a.pop()
+                            }
+                        }
+                    }
+                }
+                // $.log(res.data.positionInfo['1'])
+                if(res.msg=='success'){
+                    $.log(`已完成获取用户信息`)
+                    // $.log(`正在获取位置${res1}`)
+                }else {
+                    await $.wait(20000)
+                }
             }resolve();
             if(error){
-                console.log(`✨✨✨签到失败,脚本参数问题请检查并升级脚本`)
+                console.log(`✨✨✨任务失败,脚本参数问题请检查并升级脚本`)
                 return false
             }else {
-                console.log(`签到初始化成功!!!!`)
+                return true
+            }
+        })
+    });
+}
+
+
+function open_gold() {
+    return new Promise((resolve) => {
+        let parms = {
+            url: `https://cs.taoliutech.com/game/api/v1/timing/open_gold`,
+            headers: {
+                "Host": "cs.taoliutech.com",
+                "Accept-Encoding": "gzip, deflate",
+                "Gameversion": "1.0.331",
+                "Authorization": auth,
+                "Versioncode": "331",
+                "Content-Type": "application/json",
+                "User-Agent": "Dalvik/2.1.0 (Linux; U; Android 11; Redmi Note 8 Pro Build/RP1A.200720.011)"
+            },
+            body:`{}`
+        };
+        //两种 $.log(parms.url)     $.log(parms['url'])
+        $.post(parms,async (error,response,data)=>{
+            if(debug){
+                // console.log(`========这是测试获取请求后的响应数据========\n`)
+                // console.log(response,typeof (response))
+                if((response.status===200)&&(response.statusCode===200)){
+                    $.log(`🎉🎉🎉🎉领取金币红包请求成功🎉🎉🎉🎉`)
+                }
+                // console.log(data,typeof (data))
+                let res=JSON.parse(data)//string转json
+                console.log(res,typeof res)
+                if(res.msg=='success'){
+                    $.log(`已完成红包领取`)
+                    // $.log(`正在获取位置${res1}`)
+                }else {
+                    if(res.msg!='今日红包已领完'){
+                        await $.wait(20000)
+                        $.log(`红包已经领取过,请等待`)
+                        await $.wait(500000)
+                        await open_gold()
+                    }
+
+                }
+            }resolve();
+            if(error){
+                console.log(`✨✨✨任务失败,脚本参数问题请检查并升级脚本`)
+                return false
+            }else {
+                return true
+            }
+        })
+    });
+}
+
+function user_buy() {
+    return new Promise((resolve) => {
+        let parms = {
+            url: `https://cs.taoliutech.com/game/api/v1/user/user_buy`,
+            headers: {
+                "Host": "cs.taoliutech.com",
+                "Accept-Encoding": "gzip, deflate",
+                "Gameversion": "1.0.331",
+                "Authorization": auth,
+                "Versioncode": "331",
+                "Content-Type": "application/json",
+                "User-Agent": "Dalvik/2.1.0 (Linux; U; Android 11; Redmi Note 8 Pro Build/RP1A.200720.011)",
+            },
+            body:`{"buy_id":${res2},"type":1}`
+        };
+        //两种 $.log(parms.url)     $.log(parms['url'])
+        $.post(parms,async (error,response,data)=>{
+            if(debug){
+                // console.log(`========这是测试获取请求后的响应数据========\n`)
+                // console.log(response,typeof (response))
+                // console.log(data,typeof (data))
+                let res=JSON.parse(data)//string转json
+                console.log(res,typeof res)
+                let r0=res.data
+                console.log(r0,typeof r0)
+                // let r1=r0['buy_price']
+                // let r2=r0.assets
+                if(res.msg=='success'){
+                    let r1=r0['buy_price']
+                    let r2=r0.assets
+                    $.log(`用户购买成功`)
+                    if(r2>=r1&&res['code']!=400){
+                        await $.wait(20000)
+                        await user_buy()
+
+                    }
+                }else {
+                    await $.wait(20000)
+
+                }
+            }resolve();
+            if(error){
+                console.log(`✨✨✨任务失败,脚本参数问题请检查并升级脚本`)
+                return false
+            }else {
+                return true
+            }
+        })
+    });
+}
+
+function user_move(sit_a,sit_b) {
+    return new Promise((resolve) => {
+        let parms = {
+            url: `https://cs.taoliutech.com/game/api/v1/user/user_move`,
+            headers: {
+                "Host": "cs.taoliutech.com",
+                "Accept-Encoding": "gzip, deflate",
+                "Gameversion": "1.0.331",
+                "Authorization": auth,
+                "Versioncode": "331",
+                "Content-Type": "application/json",
+                "User-Agent": "Dalvik/2.1.0 (Linux; U; Android 11; Redmi Note 8 Pro Build/RP1A.200720.011)",
+            },
+            body:`{"position_id_one":${sit_a},"position_id_two":${sit_b},"type":1}`
+        };
+        //两种 $.log(parms.url)     $.log(parms['url'])
+        $.post(parms,async (error,response,data)=>{
+            if(debug){
+                // console.log(data,typeof (data))
+                let res=JSON.parse(data)//string转json
+                console.log(res,typeof res)
+                // let res1=res['data']
+
+                // $.log(res.data.positionInfo['1'])
+                if(res.msg=='success'){
+                    $.log(`已完成商品的合成`)
+                    // $.log(`正在获取位置${res1}`)
+                    await $.wait(20000)
+                    await get_user_info()
+                }else {
+                    await $.wait(20000)
+                }
+            }resolve();
+            if(error){
+                console.log(`✨✨✨任务失败,脚本参数问题请检查并升级脚本`)
+                return false
+            }else {
+                return true
+            }
+        })
+    });
+}
+
+
+function user_update_gold() {
+    return new Promise((resolve) => {
+        let parms = {
+            url: `https://cs.taoliutech.com/game/api/v1/user/user_update_gold`,
+            headers: {
+                "Host": "cs.taoliutech.com",
+                "Accept-Encoding": "gzip, deflate",
+                "Gameversion": "1.0.331",
+                "Authorization": auths,
+                "Versioncode": "331",
+                "Content-Type": "application/json",
+                "User-Agent": "Dalvik/2.1.0 (Linux; U; Android 11; Redmi Note 8 Pro Build/RP1A.200720.011)",
+                "Connection": "Keep-Alive",
+            },
+            body:`{}`
+        };
+        //两种 $.log(parms.url)     $.log(parms['url'])
+        $.post(parms,async (error,response,data)=>{
+            if(debug){
+                // console.log(`========这是测试获取请求后的响应数据========\n`)
+                // console.log(response,typeof (response))
+                // console.log(data,typeof (data))
+                let res=JSON.parse(data)//string转json
+                // console.log(res,typeof res)
+                let res1=res.data['assets']
+                console.log(`正在测试res1的值和数据类型${res1,typeof res1}`)
+                if(res.msg=='success'){
+                    $.log(`已完成金币领取`)
+                    if(res3!=res1){
+                        for(i;i<=100;i++){
+                            $.log(`预计将再领取${100-i}次`)
+                            $.log(res1)
+                            i=i+1
+                            res3=res1
+
+                            await $.wait(200)
+                            await user_update_gold()
+                        }
+
+                        await open_gold()
+                        // $.log(`正在获取位置${res1}`)
+                    }
+
+                }else {
+                    await $.wait(20000)
+                    $.log(`开金币失败`)
+
+                }
+            }resolve();
+            if(error){
+                console.log(`✨✨✨任务失败,脚本参数问题请检查并升级脚本`)
+                return false
+            }else {
+                return true
+            }
+        })
+    });
+}
+
+function get_list() {
+    return new Promise((resolve) => {
+        let parms = {
+            url: `https://cs.taoliutech.com/game/api/v1/task/get_list`,
+            headers: {
+                "Host": "cs.taoliutech.com",
+                "Accept-Encoding": "gzip, deflate",
+                "Gameversion": "1.0.331",
+                "Authorization": auth,
+                "Versioncode": "331",
+                "Content-Type": "application/json",
+                "User-Agent": "Dalvik/2.1.0 (Linux; U; Android 11; Redmi Note 8 Pro Build/RP1A.200720.011)",
+                "Connection": "Keep-Alive",
+            },
+            body:`{"type":"1"}`
+        };
+        //两种 $.log(parms.url)     $.log(parms['url'])
+        $.post(parms,async (error,response,data)=>{
+            if(debug){
+
+                let res=JSON.parse(data)//string转json
+                if(res.msg=='success'){
+                    $.log(`已完成任务列表的获取`)
+                    $.log(res['data'].list,typeof res['data'].list)
+
+                }else {
+
+                    await $.wait(20000)
+                    $.log(`开金币失败`)
+
+                }
+            }resolve();
+            if(error){
+                console.log(`✨✨✨任务失败,脚本参数问题请检查并升级脚本`)
+                return false
+            }else {
                 return true
             }
         })

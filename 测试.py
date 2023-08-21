@@ -1,3 +1,2 @@
-x = "big"
-y = 2
-print(x + y)
+if 15.6>=10:
+    print('测试成功')

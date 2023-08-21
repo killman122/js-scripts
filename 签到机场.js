@@ -1,84 +1,29 @@
-const $=new Env('资金盘')
-let cookie='{"type":24,"_silent":true,"token":"3caea93d17a1274d41618145bb9098c4","method":"api.goldTask.ASMMember","device":"android"}'||process.env.jk160//user_key=0017338a6dc7374dd2ffb5d7af8f3e91SRrdDVXS20221206185848&cid=16
+const $=new Env('机场签到')
+let cookie='email=wjr2483484885%40gmail.com;expire_in=1675344596;ip=4f2b7a6c84d064c8d8994f10258c21c5;key=9b3ea0b52e9f098930c088079d8878bbf1d2b5246f974;lang=zh-cn;mtauth=cb2f26958faaead71be68957f7c06712;PHPSESSID=vkbd3eqspsm5d2rt2n1s4ckoqt;pop=yes;uid=539;@email=2483483884%40qq.cpm;expire_in=1675343148;ip=5d3e19a20dd83cd638b7cfa78481aa8b;key=486c5d2350a803493f141f95bb52d6edd372732dff5de;lang=zh-cn;mtauth=cb2f26958faaead71be68957f7c06712;PHPSESSID=vkbd3eqspsm5d2rt2n1s4ckoqt;pop=yes;uid=513@email=2483484885%40qq.com;expire_in=1675343251;ip=757af5c55af43c2575c8258328625a9b;key=499150a745a4179733356551965da7e1019e4db19785c;lang=zh-cn;mtauth=cb2f26958faaead71be68957f7c06712;PHPSESSID=vkbd3eqspsm5d2rt2n1s4ckoqt;pop=yes;uid=536'||process.env.jcqd//user_key=0017338a6dc7374dd2ffb5d7af8f3e91SRrdDVXS20221206185848&cid=16
 let cookies=[]
-console.log(cookie)
-// 16680519106688891
-// let i;
-// for(let i=16680519106688891;i<16680519106788891;i++){
-//     console.log(i)
-//     await $.wait(800)
-//     await Bug(i)
-//     await $.wait(200)
-// }
+let debug=1
 
-// for(let index=0;index<cookies.length;index++){
-//             let num=index+1
-//             $.log(`======现在正在分割user_key和cid,正在获取数据类型======`)
-//             data=cookies[index].split('&')
-//             $.log(`这是分割完的json对象数据user_key和cid\n${data},数据类型为${typeof (data)}`)//将object中的对象变为数组
-//             console.log(`这是分割完整的数据中的user_key保存在data[0]${data[0]}`)
-//             console.log(`这是分割完整的数据中的cid保存在data[1]${data[1]}`)
-//             data2=data[index].split('=')
-//             $.log(`!!!!!!!!!!!这是测试连续分割字符串中的数据量!!!!!${data2}\n`)
-//             $.log(`这是测试连续分割字符串出现的输出的前缀userkey在data2[0]中${data2[0]}`)
-//             $.log(`这是测试连续分割字符串出现的输出的前缀userkey的数据值在data2[1]${data2[1]}`)
-//             // console.log(data,typeof(data))
-//             $.log(`======现在正在分割ascstoken和userId======`)
-//             data1=asstokens[index].split('&')
-//             console.log(`这是分割完的json对象数据asstoken和userId\n${data1},数据类型为${typeof (data1)}`)
-//             console.log(`这是分割完整的数据中的accessToken保存在data1[0]${data1[0]}`)
-//             console.log(`这是分割完整的数据中的userId保存在data1[1]${data1[1]}`)
-//             data4=data1[1].split('=')
-//             $.log(`这是测试分割出user_id在${data4}`)
-//             data3=data1[index].split('=')
-//             $.log(`!!!!!!!!!!!这是测试连续分割字符串中的数据量!!!!!${data3}\n`)
-//             $.log(`这是测试连续分割字符串出现的输出的前缀accessToken在data3[0]中${data3[0]}`)
-//             $.log(`这是测试连续分割字符串出现的输出的前缀accessToken的数据值在data3[1]${data3[1]}`)
-//             // console.log(asstokens[0])
-//             // console.log(data1,typeof (data1))
-//             $.log(`=========开始第${num}个账户任务========\n\n`)
-//             cookie=cookies[index]
-//             $.log(`当前任务是查询签到状态+++`)//is_signed:1代表签到成功,反之如果为0代表签到不成功
-//             await CheckSignIn()
-//             await $.wait(2000)
-//             $.log(`=====当前正在执行的是签到任务====`)
-//             await SignIn()//这里是post请求的签到接口,正在执行签到任务
-//             await $.wait(2000)
-//             $.log(`开始查询任务列表...\n`)
-//             await $.wait(2000)
-//             $.log(`正在查询任务列表,目前仅支持点赞功能~~~`)
-//             await SearchTask()
-//             await $.wait(1000)
-//             $.log(`====当前正在执行的是随机领取气泡球====`)
-//             await $.wait(2000)
-//             await  CollectBall()
-//             await $.wait(1000)
-//             await  CollectBall()
-//             await $.wait(1000)
-//             await  CollectBall()
-//             await $.wait(1000)
-//             await  CollectBall()
-//             await $.wait(1000)
-//             await  CollectBall()
-//             await $.wait(1000)
-//             await  CollectBall()
-//             await $.wait(1000)
-//             await  CollectBall()
-//             await $.wait(1000)
-//             await  CollectBall()
-//             await $.wait(1000)
-//             await  CollectBall()
-//             await $.wait(1000)
-//             $.log(`气泡球任务执行完成\n`)
-//
-//         }
+let time=new Date().getTime()
+console.log(`当前的十三位的时间戳是${time}`)
+let coments=['好','对','是']
+let coment=coments[Math.floor(Math.random()*coments.length)]//随机评论
+// console.log(coment)
+// let point_sort=point_sorts[Math.floor(Math.random()*point_sorts.length)]随机领取积分球
+// console.log(point_sort)
+
 !(async ()=>{
     if(cookie){
-        for(i=16680519106688892;i<16680519106788891;i++){
-            console.log(i)
-            // await $.wait(800)
-            await Bug(i)
-            await $.wait(200)
+        cookies=cookie.split('@')
+        $.log(`总共有${cookies.length}个cookie`)
+
+        for(let index=0;index<cookies.length;index++){
+            let num=index+1
+            $.log(`这是第${num}个cookie`)
+            $.log(cookies[index])
+            // await CheckIn(cookies[index])
+            // await $.wait(10000)
+            await Shop(cookies[index])
+            await $.wait(10000)
         }
     }else {
         $.log(`\n请先获取cookie填入后在运行\n`)
@@ -86,40 +31,46 @@ console.log(cookie)
 })()
 
 
-function Bug (i) {
+function CheckIn (cookie) {
     return new Promise((resolve) => {
         let parms = {
-            url: `https://shiapp.huajiet.com/api.html?XDEBUG_SESSION_START=16315&X-CSRF-TOKEN=${i}`,
+            url: `https://xianpoqiang.com/user/checkin`,
             headers: {
-                "Cache-Control": "no-cache",
-                "Connection": "Keep-Alive",
-                "Content-Type": "application/json; Charset=UTF-8",
-                "Accept-Language": "zh-cn",
-                "Cookie": "token=AgHWIxkpeP7kRvaJaTVS_JC05n1Z520Hre4I5sdgVGjvb-iF32js5FhNfsATaeIOUkClbq3zEPGjAQAAAAB5GAAAvPO7_q2edTLVfx8M5SQbwZSXEFxabTfYItqlY-OofyZSxdAeC-cP5P1Bi1lRhvz9",
-                "Host": "promotion.waimai.meituan.com",
-                "Referer": "https://market.waimai.meituan.com/",
-                "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 TitansX/20.0.1.old KNB/1.0 iOS/15.5 meituangroup/com.meituan.imeituan/12.8.202 meituangroup/12.8.202 App/10110/12.8.202 iPhone/iPhone13ProMax WKWebView",
-                "Content-Length": "1588",
+                "accept": "application/json, text/javascript, */*; q=0.01",
+                "accept-encoding": "gzip, deflate, br",
+                "accept-language": "zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6",
+                "cache-control": "no-cache",
+                "content-length": "0",
+                "cookie": "email=2483483884%40qq.cpm;expire_in=1679210442;ip=751a154388579d0b2909984206a39a4f;key=2cdd8f63970fd28ef84da7d47c608966a989ebf12bcf6;lang=zh-cn;mtauth=f04b7bf5177dc73f27ec8f611ab84be3;PHPSESSID=5tkhmeos0jpjaniikrs3r6189h;uid=513;",
+                "origin": "https://xianpoqiang.com",
+                "pragma": "no-cache",
+                "referer": "https://xianpoqiang.com/user",
+                "sec-ch-ua-mobile": "?0",
+                "sec-ch-ua-platform": "Windows",
+                "sec-fetch-dest": "empty",
+                "sec-fetch-mode": "cors",
+                "sec-fetch-site": "same-origin",
+                "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36 Edg/105.0.1343.53",
+                "x-requested-with": "XMLHttpRequest",
             },
-            body:`${cookie}`
+            body:``
         };
-
-        console.log(`================这里是测试显示请求的header中的参数================\n`);
-        console.log(parms)//这里是显示原版的json数据格式的请求头
+        if(debug){
+            console.log(`================这里是测试显示请求的header中的参数================\n`);
+            console.log(parms)//这里是显示原版的json数据格式的请求头
             // console.log(JSON.stringify(parms))
-
+        }
         console.log(parms.url)
         $.post(parms,async (error,response,data)=>{
-            if(1){
+            if(debug){
                 // console.log(`========这是测试获取请求后的响应数据========\n`)
                 // console.log(response,typeof (response))
-                // if((response.status===200)&&(response.statusCode===200)){
-                //     $.log(`🎉🎉🎉🎉签到成功🎉🎉🎉🎉`)
-                // }
-                console.log(data,typeof (data))
-                // let res=JSON.parse(data)
-                // // console.log(res)
-                // console.log(`当前正在二次校验返回值\n${res.error_msg}`)
+                if((response.status===200)&&(response.statusCode===200)){
+                    $.log(`🎉🎉🎉🎉签到成功🎉🎉🎉🎉`)
+                }
+                // console.log(data,typeof (data))
+                let res=JSON.parse(data)
+                console.log(res)
             }resolve();
             if(error){
                 console.log(`✨✨✨签到失败,脚本参数问题请检查并升级脚本`)
@@ -131,6 +82,60 @@ function Bug (i) {
         })
     });
 }
+
+function Shop (cookie) {
+    return new Promise((resolve) => {
+        let parms = {
+            url: `https://xianpoqiang.com/user/buy`,
+            headers: {
+                "accept": "application/json, text/javascript, */*; q=0.01",
+                "accept-encoding": "gzip, deflate, br",
+                "accept-language": "zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6",
+                "cache-control": "no-cache",
+                "content-length": "42",
+                "content-type": "application/x-www-form-urlencoded; charset=UTF-8",
+                "cookie": "pop=yes; lang=zh-cn; mtauth=d92cf5cb9ac67a8337f6801656349d18; uid=539; email=wjr2483484885%40gmail.com; key=8e32601b7b9b430605a961feae8681414cd14c4ccd199; ip=aad42ecbd6d727955c9b3208f35a9dff; expire_in=1675374342",
+                "origin": "https://xianpoqiang.com",
+                "pragma": "no-cache",
+                "referer": "https://xianpoqiang.com/user/shop",
+                "sec-ch-ua-mobile": "?0",
+                "sec-ch-ua-platform": "Windows",
+                "sec-fetch-dest": "empty",
+                "sec-fetch-mode": "cors",
+                "sec-fetch-site": "same-origin",
+                "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36 Edg/105.0.1343.53",
+                "x-requested-with": "XMLHttpRequest",
+            },
+            body:``
+        };
+        if(debug){
+            console.log(`================这里是测试显示请求的header中的参数================\n`);
+            console.log(parms)//这里是显示原版的json数据格式的请求头
+            // console.log(JSON.stringify(parms))
+        }
+        console.log(parms.url)
+        $.post(parms,async (error,response,data)=>{
+            if(debug){
+                // console.log(`========这是测试获取请求后的响应数据========\n`)
+                // console.log(response,typeof (response))
+                // if((response.status===200)&&(response.statusCode===200)){
+                //     $.log(`🎉🎉🎉🎉购买套餐成功🎉🎉🎉🎉`)
+                // }
+                // console.log(data,typeof (data))
+                let res=JSON.parse(data)
+                console.log(res)
+            }resolve();
+            if(error){
+                console.log(`✨✨✨购买失败,脚本参数问题请检查并升级脚本`)
+                return false
+            }else {
+                console.log(`购买初始化成功!!!!`)
+                return true
+            }
+        })
+    });
+}
+
 
 function Env(t, e) {
     "undefined" != typeof process && JSON.stringify(process.env).indexOf("GITHUB") > -1 && process.exit(0);
