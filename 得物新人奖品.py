@@ -1,4 +1,5 @@
 # 通过抓包观察可以发现,所有的商品通过id值来获取,从第一个id值到最后一个id为止
+import time
 
 import requests
 from fake_useragent import UserAgent
@@ -188,7 +189,48 @@ def 得物商品监控():
     #         消息内容 = i['spuName'] + '价格=' + str(int(i['discountPrice']) / 100) + '\n'
     #         消息内容 += 消息内容
     #         print(消息内容)
+import time
+from datetime import datetime, timedelta
+import pytz
 
+# Define what task to perform when desired time is reached
+def perform_task():
+    print("10:00 AM arrived in Beijing! Performing task...")
+    # Add your task here
+
+# Define function to wait until 10:00 AM Beijing time
+def wait_until_specific_time(target_hour=10, target_min=0):
+    # Get Beijing Timezone
+    beijing = pytz.timezone('Asia/Shanghai')
+
+    while True:
+        # Get current Beijing Time
+        current_time = datetime.now(beijing)
+
+        # Check if current time is already past desired time
+        if current_time.hour > target_hour or (current_time.hour == target_hour and current_time.minute == target_min-1 and current_time.second > 58):
+            # Calculate time until next day's desired time
+            tomorrow = current_time + timedelta(days=1)
+            target_time = datetime(year=tomorrow.year, month=tomorrow.month, day=tomorrow.day,
+                                   hour=target_hour, minute=target_min, tzinfo=beijing)
+        else:
+            # Calculate time until today's desired time
+            target_time = datetime(year=current_time.year, month=current_time.month, day=current_time.day,
+                                   hour=target_hour, minute=target_min, tzinfo=beijing)
+
+        # Calculate the seconds left until target time
+        seconds_until_target = (target_time - current_time).total_seconds()
+        print(f"Seconds until {target_hour}:{target_min}: {seconds_until_target}")
+
+        # Wait until target time
+        if seconds_until_target > 0:
+            time.sleep(seconds_until_target)
+            perform_task()
+        else:
+            # If target time was in the past (negative time difference), start over
+            continue
+
+# wait_until_specific_time()
 
 def 得物商品提交(spuId):
     url = 'https://app.dewu.com/hacking-newbie/v1/high-value/receive?sign=766da56bb9005a708cc9275b3e02df20'
@@ -200,13 +242,13 @@ def 得物商品提交(spuId):
         'SK': '9JgSKkxfRab52YsrdOjH54LecF84HNlf5diZf1Bar21LuO2dT61f7BMr3jx71zpgBz2FenzLWbqdN4ucytOKTa9FJr1u',
         'shumeiId': '202206201105599577aec2d8302d653009c385871e64ef01dab1c9dbe482cd',
         'deviceTrait': 'Redmi+Note+8+Pro',
-        'x-auth-token': "Bearer eyJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE2OTQxODg1MTQsImV4cCI6MTcyNTcyNDUxNCwiaXNzIjoiZGY2NmU1MDhmM2JjZmZkMyIsInN1YiI6ImRmNjZlNTA4ZjNiY2ZmZDMiLCJ1dWlkIjoiZGY2NmU1MDhmM2JjZmZkMyIsInVzZXJJZCI6MTk1NjIzMDYyMSwidXNlck5hbWUiOiLlvpfniallci1TM1IxTDFUOCIsImlzR3Vlc3QiOmZhbHNlfQ.StCZ-rlN9I-YC4Px5y6HLRd4YVeHhfJZPjo9X1hayvU3pECfEA2INlg_aWDLoCOX_rMSapARHUmPdodXrgPMMkCyh9vWdaDXecATM3mhqdRfTHn4x_boE_7Q34tWaM-v1oglxIHlraZsuG68Fo-kWWDWdUWg-N9DaQAfKYhwF1ade3e3eBjTVxJ_BuhP2ftUArAuoQRPZckdrd6Bz-90Rc4ftAVsD542Kn4FpPbTX16Ujt-m2MzQvWFBnTNaf1SwRKSCDtrCiCrf7rQqUB69oVZZygUYoqhPTV-kh7hTQj9DB-u1j88aiD59ADPfqn1Lc1QMnfoXet91OGdD69PB5w",
-        'uuid': 'df66e508f3bcffd3',
+        'x-auth-token': "Bearer eyJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE2OTczMzU0MzEsImV4cCI6MTcyODg3MTQzMSwiaXNzIjoiNGU2OTJhNDBkY2JlNTJkNSIsInN1YiI6IjRlNjkyYTQwZGNiZTUyZDUiLCJ1dWlkIjoiNGU2OTJhNDBkY2JlNTJkNSIsInVzZXJJZCI6MTk4MTY2MjE0NCwidXNlck5hbWUiOiLlvpfniallci01UTFCMUIySyIsImlzR3Vlc3QiOmZhbHNlfQ.HSz7_zdkPPOscLuSOs3reSGMgEXflIZP_SjB_KRZsYQAbU1R_IiXu8VxG44cNEwB3diytg4gG_R2TY3yEpfYvDBzP3Oh-RfpfI0Ijr4lVn_uNIJom0vcWjghCLUvvyL051gt5RidMh-zvlymDk4hjXCWfQbAfZKyitb-ityqYdnEnO5tajWZXFNcOOZELXEmHPk6341UEoMturT4sjrTMYBlSnTkgbgxRfl5Ak69tfEL47g_Hgn7cj_woN_AuRk3fuq8g6vsGT9PBG_tEvbX33hYbaXuue3Sb3KkVsHNvuIb9VZndqwf28H9aj4SAX2jBNarrF_kSAsBrIA3TMRa0A",
+        'uuid': '4e692a40dcbe52d5',
         'channel': 'du',
-        'duToken': 'd41d8cd9|1956230621|1694013158|3ca8a116837e0870',
+        'duToken': 'd41d8cd9|1981662144|1695922785|e99c7bcb1398f302',
         'appVersion': '5.22.3',
         'emu': '0',
-        'cookieToken': 'd41d8cd9|1956230621|1694013158|3ca8a116837e0870',
+        'cookieToken': 'd41d8cd9|1981662144|1695922785|e99c7bcb1398f302',
         'User-Agent': 'Mozilla/5.0 (Linux; Android 11; Redmi Note 8 Pro Build/RP1A.200720.011; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/87.0.4280.141 Mobile Safari/537.36/duapp/5.22.3(android;11)',
         'isRoot': '0',
         'imei': '',
@@ -220,13 +262,15 @@ def 得物商品提交(spuId):
         'Sec-Fetch-Dest': 'empty',
         'Referer': 'https://m.dewu.com/h5-newbie/super-deal-product',
         'Accept-Language': 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7',
-        'Cookie': 'duToken=d41d8cd9|1956230621|1694013158|3ca8a116837e0870',
+        'Cookie': 'duToken=d41d8cd9|1981662144|1695922785|e99c7bcb1398f302',
         'Content-Type': 'application/json'
     }
     data = {"spuId": spuId}
     res = requests.post(url=url, headers=headers,json=data)
     print(res.json())
 
-# 得物商品提交()
+for i in range(80):
+    得物商品提交(6185146)
+    time.sleep(0.03)
 # 推送()
-得物商品监控()
+# 得物商品监控()
