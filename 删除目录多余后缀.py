@@ -4,9 +4,11 @@
 import os
 import re
 
+# 无论是在Java还是在python中似乎一般情况下名中带有sub字段的都是替换的意思, 或者是截取的意思
 
 def dir_scan(path):
     for dirpath, dirnames, filenames in os.walk(path):
+        print(dirpath,dirnames,filenames)
         for filename in filenames:
             print(filename)
             new_filename = re.sub(r"【更多it教程 微信号：it2120】", '', filename)  # 通过正则匹配, 将文件名中的后缀删除, 需要一个返回值否则不会改变
@@ -21,4 +23,4 @@ def dir_scan(path):
 
 
 if __name__ == "__main__":
-    dir_scan("D:\BaiduNetdiskDownload\\nginx-1.20.2")  # 输入要删除后缀的文件的目录
+    dir_scan("D:\MD\Java相关和算法\苍穹外卖")  # 输入要删除后缀的文件的目录
