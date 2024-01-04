@@ -11,7 +11,8 @@ from email.mime.text import MIMEText
 Cutten_time = time.strftime("%Y-%m-%d", time.localtime())
 failed_list = [12, 18, 19, 20]
 grade = ''
-
+Authorization = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjdXJyZW50VGltZU1pbGxpcyI6IjE3MDM3MTYxMzAxNjQiLCJleHAiOjE3MDUwMTIxMzAsInVzZXJJZCI6IjM1NzU0NjEifQ.giFMTdv0a9fPm-cr7KBpu1bDaQBi67ctture2HiEIOA'
+Cookie = '_gscu_41114146=94861489465ikc14; _gscbrs_41114146=1; _gscu_1323353602=948614892mgiv414; _gscbrs_1323353602=1; _gscu_860974136=94862193tjsdnw13; _gscbrs_860974136=1; _gscu_238178258=94913330rqze1g61; _gscbrs_238178258=1; svid=9C025C1EEEB0A79C3BA223E0CF53ED35; s_fid=753CBA622A773D88-108B92890381A771; lvid=9f688f38aec6dbd34c488e155f7f9ebc; nvid=1; s_cc=true; UM_distinctid=18aa0be78d12a-018c4acc04abcc-1d625971-51a6b-18aa0be78d226a; cna=f0bf9f3d61f640b29bdb46bfd476a168; sensorsdata2015jssdkcross=%7B%22distinct_id%22%3A%22MThhOWQ5ZGY2MmQyZC0wMTJjYmQxMTU4ZmM0NzEtMWQ2MjU5NzEtMzM0NDQzLTE4YTlkOWRmNjMxN2U%3D%22%2C%22first_id%22%3A%22%22%2C%22props%22%3A%7B%22%24latest_traffic_source_type%22%3A%22%E7%9B%B4%E6%8E%A5%E6%B5%81%E9%87%8F%22%2C%22%24latest_search_keyword%22%3A%22%E6%9C%AA%E5%8F%96%E5%88%B0%E5%80%BC_%E7%9B%B4%E6%8E%A5%E6%89%93%E5%BC%80%22%2C%22%24latest_referrer%22%3A%22%22%2C%22_latest_source%22%3A%22H5-VIP%22%7D%2C%22login_type%22%3A%22%22%2C%22utms%22%3A%7B%7D%2C%22latest_utms%22%3A%7B%22_latest_source%22%3A%22H5-VIP%22%7D%2C%22%24device_id%22%3A%2218a9d9df62d2d-012cbd1158fc471-1d625971-334443-18a9d9df6317e%22%7D; _gscu_1708861450=95015587f1f44899; _gscbrs_1708861450=1; _gscu_285142680=98937082phu6f414; _gscbrs_285142680=1; chinatelecomdata2015jssdkcross=%7B%22distinct_id%22%3A%22MThiYzEyMzliZmExMGItMGY4MzlkZjQ1NzVlYmU4LTFkNjI1OTcxLTMzNDQ0My0xOGJjMTIzOWJmYjE3MQ%3D%3D%22%2C%22first_id%22%3A%22%22%2C%22props%22%3A%7B%22%24latest_traffic_source_type%22%3A%22%E7%9B%B4%E6%8E%A5%E6%B5%81%E9%87%8F%22%2C%22%24latest_search_keyword%22%3A%22%E6%9C%AA%E5%8F%96%E5%88%B0%E5%80%BC_%E7%9B%B4%E6%8E%A5%E6%89%93%E5%BC%80%22%2C%22%24latest_referrer%22%3A%22%22%7D%2C%22login_type%22%3A%22%22%2C%22utms%22%3A%7B%7D%2C%22latest_utms%22%3A%7B%7D%2C%22%24device_id%22%3A%2218bc1239bfa10b-0f839df4575ebe8-1d625971-334443-18bc1239bfb171%22%7D; Hm_lvt_15f3a5c5bd043f9dcee10253e2032754=1701507838; SHOP-JSESSION-ID=MzYwZjA1OTItZmZiYS00MTA3LTgyZmItYmRkMDU2MDk3OGRi; Hm_lpvt_15f3a5c5bd043f9dcee10253e2032754=1704043017; TS0112bd7c=0191efafea1bcabd94b79b17da56a8a1896b698f1f29edc969d9b4d6bcbfbfa37202b49d3559cdc7344630ca4fb3fe6428b4147ee7; TS01acc450=0191efafea8fecb3b94fff6498e1cc28c5ba47ccbbef721f9a123abe66b33a546462dc7ed2cebc8bbc296561ab1b4ef93b450d9d97'
 class DianXing():
     def __init__(self):
         self.headers = {
@@ -19,7 +20,7 @@ class DianXing():
             'Pragma': 'no-cache',
             'Cache-Control': 'no-cache',
             'Accept': 'application/json, text/plain, */*',
-            'Authorization': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjdXJyZW50VGltZU1pbGxpcyI6IjE2OTQ4NjE0OTk4NDciLCJleHAiOjE2OTYxNTc0OTksInVzZXJJZCI6IjM1NzU0NjEifQ.vwLUhTh5OpDZAvEzFgTRDixOFrjIr35zYNqd0h0TGAg',
+            'Authorization': Authorization,
             'User-Agent': 'Mozilla/5.0 (Linux; Android 11; Redmi Note 8 Pro Build/RP1A.200720.011; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/87.0.4280.141 Mobile Safari/537.36; superApp',
             'Origin': 'https://super.sh.189.cn',
             'X-Requested-With': 'com.shct.yi',
@@ -27,7 +28,7 @@ class DianXing():
             'Sec-Fetch-Mode': 'cors',
             'Sec-Fetch-Dest': 'empty',
             'Accept-Language': 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7',
-            'Cookie': 'sajssdk_2015_cross_new_user=1; sensorsdata2015jssdkcross=%7B%22distinct_id%22%3A%22MThhOWQ5ZGY2MmQyZC0wMTJjYmQxMTU4ZmM0NzEtMWQ2MjU5NzEtMzM0NDQzLTE4YTlkOWRmNjMxN2U%3D%22%2C%22first_id%22%3A%22%22%2C%22props%22%3A%7B%22%24latest_traffic_source_type%22%3A%22%E7%9B%B4%E6%8E%A5%E6%B5%81%E9%87%8F%22%2C%22%24latest_search_keyword%22%3A%22%E6%9C%AA%E5%8F%96%E5%88%B0%E5%80%BC_%E7%9B%B4%E6%8E%A5%E6%89%93%E5%BC%80%22%2C%22%24latest_referrer%22%3A%22%22%7D%2C%22login_type%22%3A%22%22%2C%22utms%22%3A%7B%7D%2C%22latest_utms%22%3A%7B%7D%2C%22%24device_id%22%3A%2218a9d9df62d2d-012cbd1158fc471-1d625971-334443-18a9d9df6317e%22%7D; _gscu_41114146=94861489465ikc14; _gscs_41114146=94861489kdfs9v14; _gscbrs_41114146=1; _gscu_1323353602=948614892mgiv414; _gscbrs_1323353602=1; _gscs_1323353602=94861489ximzs414|pv:2; TS01acc450=0191efafea5ceb125b48b8da6d6fdbcaf0d124dab1d169d2da27d826d14e11506f2b972766a5e68f401dc2ed1078c56ccc43e7919d',
+            'Cookie': Cookie,
             'Content-Type': 'application/json;charset=UTF-8',
             'Accept-Encoding': 'gzip, deflate',
         }
@@ -40,7 +41,7 @@ class DianXing():
         # print(self.headers)
         body = f'{{"activityCode":2,"eventCode":2,"day":"{Cutten_time}"}}'
         response = requests.post(url, data=body, headers=headers)
-        # print(response.json())
+        print(response.json())
         res = response.json().get('code')
         if res == 'SUCCESS':
             print('Success,签到成功')
@@ -85,22 +86,22 @@ class DianXing():
         # self.headers.copy(headers)
         response = requests.get(url, headers=headers, params=params)
         # pprint(response.json()) # 格式化输出代码使用pprint,需要导入外部库,from pprint import pprint
-        res = response.json()['data']
-        # print(res)
-        for i in res:
-            # print(i)
-            activityCode = i['activityCode']
-            events = i['events']
-            for event in events:
-                eventCode = event['eventCode']
-                bizLink = event['bizLink']
-                bizType = event['bizType']
-                bizId = event['bizId']
-                taskRecordId = event.get('taskRecordId')
-            print(f'activityCode是{activityCode},eventCode是{eventCode},bizLink是{bizLink}')
-            dx.Browse_tasks(activityCode, eventCode, bizId, bizType, bizLink)
-            time.sleep(1)
-            dx.receiveV2(activityCode, eventCode,taskRecordId)
+        res = response.json().get('data')
+        print(res)
+        # for i in res:
+        #     # print(i)
+        #     activityCode = i['activityCode']
+        #     events = i['events']
+        #     for event in events:
+        #         eventCode = event['eventCode']
+        #         bizLink = event['bizLink']
+        #         bizType = event['bizType']
+        #         bizId = event['bizId']
+        #         taskRecordId = event.get('taskRecordId')
+        #     print(f'activityCode是{activityCode},eventCode是{eventCode},bizLink是{bizLink}')
+        #     dx.Browse_tasks(activityCode, eventCode, bizId, bizType, bizLink)
+        #     time.sleep(1)
+        #     dx.receiveV2(activityCode, eventCode,taskRecordId)
 
     def Browse_tasks(self, activityCode, eventCode, bizId, bizType, bizLink):
         url = 'https://super.sh.189.cn/app/user/integral/eventLabel/insertTaskEvent'
@@ -181,11 +182,11 @@ def send_message():
 
 if __name__ == '__main__':
     dx = DianXing()
-    dx.get_grade()
+    # dx.get_grade()
     # print(dx.headers)
     # for key in dx.headers:
     #     print(key + ":" + dx.headers[key])
-    # dx.CheckIn()
+    dx.CheckIn()
     # dx.Luck_lottery() # 经测试发现无法使用该方法由于ck更新过快,除非逆向出ck
     dx.TaskList()  #
     # send_message()
